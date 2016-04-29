@@ -24,6 +24,10 @@
 
             //add listener, refresh markers when user move screen
             google.maps.event.addListener(map, 'bounds_changed', refreshMarker);
+            //add listener, get click location
+            google.maps.event.addListener(map, 'click', function( event ){
+            alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
+        });
         }
         function refreshMarker(){
 
@@ -49,6 +53,7 @@
                     'Error: The Geolocation service failed.' :
                     'Error: Your browser doesn\'t support geolocation.');
         }
+        
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </head>
